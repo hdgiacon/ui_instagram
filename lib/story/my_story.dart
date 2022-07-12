@@ -20,21 +20,20 @@ class MyStory extends StatelessWidget {
                 width: 60.0,
               ),
               CircleAvatar(
-                radius: 25.0,
+                radius: 32.0,
                 backgroundImage: NetworkImage(foto),
-                //backgroundColor: Colors.red,
               ),
               Container(
-                width: 20.0,
-                height: 20.0,
+                width: 22.0,
+                height: 22.0,
                 padding: const EdgeInsets.all(2.0),
                 decoration: const BoxDecoration(
                   color: Colors.black,
                   shape: BoxShape.circle,
                 ),
                 child: Container(
-                  width: 15.0,
-                  height: 15.0,
+                  width: 17.0,
+                  height: 17.0,
                   decoration: const BoxDecoration(
                     color: Colors.blue,
                     shape: BoxShape.circle,
