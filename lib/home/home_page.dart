@@ -4,6 +4,7 @@ import 'package:ui_instagram/feed/feed.dart';
 import 'package:ui_instagram/profile/profile.dart';
 import 'package:ui_instagram/reels/reels.dart';
 import 'package:ui_instagram/search/search.dart';
+import 'package:ui_instagram/search/search_appbar.dart';
 import 'package:ui_instagram/shop/shop.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,7 +55,9 @@ class _HomePageState extends State<HomePage>
           backgroundColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           onTap: (index) {
-            _tabController.animateTo(index);
+            setState(() {
+              _tabController.animateTo(index);
+            });
           },
           items: const [
             BottomNavigationBarItem(
@@ -90,10 +93,11 @@ class _HomePageState extends State<HomePage>
   AppBar currentAppBar(int index) {
     switch (index) {
       case 1:
+        return searchAppbar;
+      case 0:
       case 2:
       case 3:
       case 4:
-      case 5:
         return feedAppbar;
       default:
         return feedAppbar;

@@ -12,6 +12,7 @@ class MyStory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        const SizedBox(height: 3.0),
         GestureDetector(
           child: Stack(
             alignment: Alignment.bottomRight,
@@ -49,7 +50,7 @@ class MyStory extends StatelessWidget {
           ),
           onTap: () {},
         ),
-        const SizedBox(height: 5.0),
+        const SizedBox(height: 6.0),
         const Text(
           'Seu story',
           style: TextStyle(fontSize: 10.0, color: Colors.white),

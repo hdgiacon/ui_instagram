@@ -173,13 +173,16 @@ class Postagem extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.only(left: 20.0, right: 10.0),
-          child: Text(
-            'Ver todos os $numComentarios comentários',
-            style: const TextStyle(
-              color: Colors.grey,
+        InkWell(
+          onTap: () {},
+          child: Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 20.0, right: 10.0),
+            child: Text(
+              'Ver todos os $numComentarios comentários',
+              style: const TextStyle(
+                color: Colors.grey,
+              ),
             ),
           ),
         ),
