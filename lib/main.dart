@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/home/instagram_home.dart';
+import 'package:ui_instagram/home/home_page.dart';
 
 void main() {
   runApp(
@@ -10,7 +10,7 @@ void main() {
       builder: (context) => const MaterialApp(
         useInheritedMediaQuery: true,
         debugShowCheckedModeBanner: false,
-        home: InstagramHome(),
+        home: HomePage(),
       ),
     ),
   );
