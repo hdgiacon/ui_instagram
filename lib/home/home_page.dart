@@ -90,15 +90,16 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  AppBar currentAppBar(int index) {
+  AppBar? currentAppBar(int index) {
     switch (index) {
+      case 0:
+        return feedAppbar;
       case 1:
         return searchAppbar;
-      case 0:
       case 2:
+        return null;
       case 3:
       case 4:
-        return feedAppbar;
       default:
         return feedAppbar;
     }

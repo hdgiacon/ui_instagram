@@ -65,6 +65,7 @@ class Postagem extends StatelessWidget {
         ),
         const SizedBox(height: 5.0),
         SizedBox(
+          // usar interactive viewer
           height: MediaQuery.of(context).size.height * .45,
           child: Image(
             fit: BoxFit.fitHeight,
