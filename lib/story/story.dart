@@ -18,7 +18,7 @@ class Story extends StatelessWidget {
           child: Container(
             width: 70.0,
             height: 70.0,
-            padding: const EdgeInsets.all(2.5),
+            padding: const EdgeInsets.all(3.0),
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -38,9 +38,18 @@ class Story extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage(foto)),
+              padding: const EdgeInsets.all(1.5),
+              decoration: const BoxDecoration(
+                color: Colors.black,
                 shape: BoxShape.circle,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(foto),
+                  ),
+                  shape: BoxShape.circle,
+                ),
               ),
             ),
           ),

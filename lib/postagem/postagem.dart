@@ -31,9 +31,46 @@ class Postagem extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: Row(
             children: <Widget>[
-              CircleAvatar(
-                radius: 15.0,
-                backgroundImage: NetworkImage(fotoPerfil),
+              GestureDetector(
+                child: Container(
+                  width: 30.0,
+                  height: 30.0,
+                  padding: const EdgeInsets.all(2.0),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment(0.8, 1),
+                      colors: <Color>[
+                        Color(0xff1f005c),
+                        Color(0xff5b0060),
+                        Color(0xff870160),
+                        Color(0xffac255e),
+                        Color(0xffca485c),
+                        Color(0xffe16b5c),
+                        Color(0xfff39060),
+                        Color(0xffffb56b),
+                      ],
+                      tileMode: TileMode.mirror,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(1.5),
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(fotoPerfil),
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: () {},
               ),
               const SizedBox(width: 10.0),
               Text(

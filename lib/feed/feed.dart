@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_instagram/postagem/postagem.dart';
+import 'package:ui_instagram/story/live_story.dart';
 import 'package:ui_instagram/story/my_story.dart';
 import 'package:ui_instagram/story/story.dart';
 
@@ -29,6 +30,11 @@ class _FeedState extends State<Feed> {
       foto:
           'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI',
     ),
+    const LiveStory(
+      storyLabel: 'marquinDJ',
+      foto:
+          'https://conteudo.imguol.com.br/c/entretenimento/8f/2018/06/15/meme-de-andre-marques-1529072545810_v2_300x300.png',
+    ),
     const Story(
       storyLabel: 'fausto_oficial',
       foto:
@@ -40,9 +46,8 @@ class _FeedState extends State<Feed> {
           'https://criativafm.com/wp-content/uploads/2021/07/silvio-santos-23072021133102595.jpeg',
     ),
     const Story(
-      storyLabel: 'marquinDJ',
-      foto:
-          'https://conteudo.imguol.com.br/c/entretenimento/8f/2018/06/15/meme-de-andre-marques-1529072545810_v2_300x300.png',
+      storyLabel: 'crunchyrow',
+      foto: 'https://images-na.ssl-images-amazon.com/images/I/417bVUqe0pL.png',
     ),
     const Story(
       storyLabel: '@Jaja',
@@ -66,7 +71,7 @@ class _FeedState extends State<Feed> {
     const Postagem(
       fotoPerfil:
           'https://images-na.ssl-images-amazon.com/images/I/417bVUqe0pL.png',
-      nome: 'Crunchyroll',
+      nome: 'crunchyroll',
       imagemPostagem:
           'https://m.media-amazon.com/images/M/MV5BNzc5MTczNDQtNDFjNi00ZDU5LWFkNzItOTE1NzQzMzdhNzMxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_.jpg',
       curtidoPor: 'craqueNeto10',

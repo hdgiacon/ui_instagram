@@ -17,10 +17,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  var _actualTab = 0;
 
   @override
   void initState() {
     _tabController = TabController(vsync: this, length: 5);
+
+    _tabController.addListener(() {
+      setState(() {
+        _actualTab = _tabController.index;
+      });
+    });
+
     super.initState();
   }
 
@@ -36,7 +44,7 @@ class _HomePageState extends State<HomePage>
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.black,
-        appBar: currentAppBar(_tabController.index),
+        appBar: currentAppBar(_actualTab),
         body: TabBarView(
           controller: _tabController,
           children: const [
@@ -56,6 +64,7 @@ class _HomePageState extends State<HomePage>
           type: BottomNavigationBarType.fixed,
           onTap: (index) {
             setState(() {
+              _actualTab = index;
               _tabController.animateTo(index);
             });
           },
@@ -99,7 +108,9 @@ class _HomePageState extends State<HomePage>
       case 2:
         return null;
       case 3:
+        return null;
       case 4:
+        return null;
       default:
         return feedAppbar;
     }

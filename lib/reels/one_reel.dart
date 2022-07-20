@@ -5,10 +5,14 @@ import 'package:marquee/marquee.dart';
 import 'package:ui_instagram/insta_icons/insta_icons.dart';
 
 class OneReel extends StatelessWidget {
+  final String profileName;
+  final String profilePhoto;
   final String gifLocation;
 
   const OneReel({
     super.key,
+    required this.profileName,
+    required this.profilePhoto,
     required this.gifLocation,
   });
 
@@ -44,15 +48,15 @@ class OneReel extends StatelessWidget {
                     const Spacer(),
                     Row(
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://cdn.mensagenscomamor.com/content/images/m000532523.jpg?v=1',
+                            profilePhoto,
                           ),
                         ),
                         const SizedBox(width: 10.0),
-                        const Text(
-                          'nomePerfil',
-                          style: TextStyle(
+                        Text(
+                          profileName,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -193,9 +197,9 @@ class OneReel extends StatelessWidget {
                     Container(
                       height: 40.0,
                       decoration: BoxDecoration(
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           image: NetworkImage(
-                            'https://cdn.mensagenscomamor.com/content/images/m000532523.jpg?v=1',
+                            profilePhoto,
                           ),
                         ),
                         //color: Colors.white,
