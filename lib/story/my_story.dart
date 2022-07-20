@@ -13,7 +13,7 @@ class MyStory extends StatelessWidget {
     return Column(
       children: <Widget>[
         const SizedBox(height: 3.0),
-        GestureDetector(
+        InkWell(
           child: Stack(
             alignment: Alignment.bottomRight,
             children: <Widget>[

@@ -14,7 +14,7 @@ class Story extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        GestureDetector(
+        InkWell(
           child: Container(
             width: 70.0,
             height: 70.0,
@@ -38,7 +38,7 @@ class Story extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Container(
-              padding: const EdgeInsets.all(1.5),
+              padding: const EdgeInsets.all(2.5),
               decoration: const BoxDecoration(
                 color: Colors.black,
                 shape: BoxShape.circle,

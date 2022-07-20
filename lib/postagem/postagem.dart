@@ -31,7 +31,7 @@ class Postagem extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: Row(
             children: <Widget>[
-              GestureDetector(
+              InkWell(
                 child: Container(
                   width: 30.0,
                   height: 30.0,

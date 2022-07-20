@@ -30,7 +30,7 @@ class OneReel extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(25.0, 50.0, 10.0, 10.0),
+          padding: const EdgeInsets.fromLTRB(25.0, 20.0, 10.0, 10.0),
           child: Row(
             children: [
               Expanded(
@@ -97,7 +97,8 @@ class OneReel extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * .52,
                           height: 20.0,
                           child: Marquee(
-                            text: 'texto em movimento do reels',
+                            text: 'texto em movimento do reels   ',
+                            velocity: 28.0,
                             style: const TextStyle(
                               color: Colors.white,
                             ),
@@ -202,8 +203,10 @@ class OneReel extends StatelessWidget {
                             profilePhoto,
                           ),
                         ),
-                        //color: Colors.white,
-                        border: Border.all(width: 3.0, color: Colors.white),
+                        border: Border.all(
+                          width: 3.0,
+                          color: Colors.white,
+                        ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
