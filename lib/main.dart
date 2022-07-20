@@ -7,6 +7,7 @@ void main() {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
+      backgroundColor: const Color(0xFF2e2e2e),
       builder: (context) => const MaterialApp(
         useInheritedMediaQuery: true,
         debugShowCheckedModeBanner: false,
