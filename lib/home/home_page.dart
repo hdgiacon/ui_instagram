@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_instagram/feed/app_bar_feed.dart';
 import 'package:ui_instagram/feed/feed.dart';
 import 'package:ui_instagram/profile/profile.dart';
+import 'package:ui_instagram/profile/profile_appbar.dart';
 import 'package:ui_instagram/reels/reels.dart';
 import 'package:ui_instagram/reels/reels_appbar.dart';
 import 'package:ui_instagram/search/search.dart';
@@ -54,7 +55,10 @@ class _HomePageState extends State<HomePage>
             Search(),
             Reels(),
             Shop(),
-            Profile(),
+            Profile(
+              profileImage:
+                  'https://quartoframe.com.br/wp-content/uploads/2021/04/minato-namikaze.jpg',
+            ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -90,7 +94,7 @@ class _HomePageState extends State<HomePage>
             BottomNavigationBarItem(
               icon: CircleAvatar(
                 backgroundImage: NetworkImage(
-                  'https://pbs.twimg.com/profile_images/1190742144/mrbean-270x300_400x400.jpg',
+                  'https://quartoframe.com.br/wp-content/uploads/2021/04/minato-namikaze.jpg',
                 ),
               ),
               label: '',
@@ -112,7 +116,7 @@ class _HomePageState extends State<HomePage>
       case 3:
         return shopAppbar;
       case 4:
-        return null;
+        return profileAppbar;
       default:
         return feedAppbar;
     }

@@ -131,7 +131,7 @@ class OneReel extends StatelessWidget {
                     IconButton(
                       onPressed: () {},
                       color: Colors.white,
-                      icon: const Icon(Icons.camera),
+                      icon: const Icon(Icons.camera_alt),
                     ),
                     const Spacer(),
                     IconButton(
@@ -147,7 +147,7 @@ class OneReel extends StatelessWidget {
                       '138 mil',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12.0,
+                        fontSize: 11.0,
                       ),
                     ),
                     const SizedBox(height: 10.0),
@@ -168,7 +168,7 @@ class OneReel extends StatelessWidget {
                       '306',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12.0,
+                        fontSize: 11.0,
                       ),
                     ),
                     const SizedBox(height: 10.0),

@@ -23,7 +23,7 @@ class _FeedState extends State<Feed> {
   var listStory = [
     const MyStory(
       foto:
-          'https://pbs.twimg.com/profile_images/1190742144/mrbean-270x300_400x400.jpg',
+          'https://quartoframe.com.br/wp-content/uploads/2021/04/minato-namikaze.jpg',
     ),
     const Story(
       storyLabel: 'NetflixBrasil',
@@ -31,27 +31,28 @@ class _FeedState extends State<Feed> {
           'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI',
     ),
     const LiveStory(
-      storyLabel: 'marquinDJ',
+      storyLabel: 'tv_globinho',
       foto:
-          'https://conteudo.imguol.com.br/c/entretenimento/8f/2018/06/15/meme-de-andre-marques-1529072545810_v2_300x300.png',
+          'https://pbs.twimg.com/profile_images/1683648123/tv_globinho_400x400.jpg',
     ),
     const Story(
-      storyLabel: 'fausto_oficial',
-      foto:
-          'https://cdn.mensagenscomamor.com/content/images/m000532523.jpg?v=1',
-    ),
-    const Story(
-      storyLabel: 'silvio.santos',
-      foto:
-          'https://criativafm.com/wp-content/uploads/2021/07/silvio-santos-23072021133102595.jpeg',
-    ),
-    const Story(
-      storyLabel: 'crunchyrow',
+      storyLabel: 'crunchyroll',
       foto: 'https://images-na.ssl-images-amazon.com/images/I/417bVUqe0pL.png',
     ),
     const Story(
-      storyLabel: '@Jaja',
-      foto: 'https://i1.sndcdn.com/avatars-000178307058-j65xvd-t500x500.jpg',
+      storyLabel: '@simpsons.oficial',
+      foto:
+          'https://i.pinimg.com/originals/bd/19/2f/bd192f2723f7d81013f04903d9e0428b.png',
+    ),
+    const Story(
+      storyLabel: 'cujo_jotaro',
+      foto:
+          'https://ovicio.com.br/wp-content/uploads/2020/05/20200530-20200126-jotaro-1200x675-1-555x555.jpg',
+    ),
+    const Story(
+      storyLabel: 'noob_saibot',
+      foto:
+          'http://pm1.narvii.com/6676/958e03999be2a9c01e9f9e71096b851b291caaa3_00.jpg',
     ),
   ];
 
@@ -85,7 +86,7 @@ class _FeedState extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: scrollController,
+      //controller: scrollController,
       child: Column(
         children: <Widget>[
           const SizedBox(height: 5.0),
@@ -105,6 +106,7 @@ class _FeedState extends State<Feed> {
             ),
           ),
           ListView.separated(
+            controller: scrollController,
             separatorBuilder: (context, index) => const Divider(),
             itemCount: listPosts.length,
             shrinkWrap: true,

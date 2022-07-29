@@ -5,7 +5,7 @@ class Shop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _shopFiltersList = [
+    final shopFiltersList = [
       ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
@@ -126,9 +126,9 @@ class Shop extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             separatorBuilder: (context, index) => const SizedBox(width: 5.0),
-            itemCount: _shopFiltersList.length,
+            itemCount: shopFiltersList.length,
             itemBuilder: (context, index) {
-              return _shopFiltersList[index];
+              return shopFiltersList[index];
             },
           ),
         ),
