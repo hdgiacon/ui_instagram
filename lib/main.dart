@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/home/home_page.dart';
+import 'package:ui_instagram/home_page/home_page.dart';
 
 void main() {
   runApp(

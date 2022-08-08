@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage>
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.black,
-        appBar: currentAppBar(_actualTab),
+        //appBar: currentAppBar(_actualTab),
         body: TabBarView(
           controller: _tabController,
           children: const [
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage>
           onTap: (index) {
             setState(() {
               _actualTab = index;
-              _tabController.animateTo(index);
+              _tabController.animateTo(_actualTab);
             });
           },
           items: const [

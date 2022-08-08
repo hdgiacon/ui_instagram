@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_instagram/insta_icons/insta_icons.dart';
+import 'package:ui_instagram/story/story.dart';
 
 class Postagem extends StatelessWidget {
   final String fotoPerfil;
@@ -31,46 +32,11 @@ class Postagem extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: Row(
             children: <Widget>[
-              InkWell(
-                child: Container(
-                  width: 30.0,
-                  height: 30.0,
-                  padding: const EdgeInsets.all(2.0),
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment(0.8, 1),
-                      colors: <Color>[
-                        Color(0xff1f005c),
-                        Color(0xff5b0060),
-                        Color(0xff870160),
-                        Color(0xffac255e),
-                        Color(0xffca485c),
-                        Color(0xffe16b5c),
-                        Color(0xfff39060),
-                        Color(0xffffb56b),
-                      ],
-                      tileMode: TileMode.mirror,
-                    ),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(1.5),
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(fotoPerfil),
-                        ),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                ),
-                onTap: () {},
+              Story(
+                foto: fotoPerfil,
+                size: 30.0,
+                isLive: false,
+                borderSize: 2.0,
               ),
               const SizedBox(width: 10.0),
               Text(

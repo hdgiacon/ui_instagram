@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_instagram/feed/app_bar_feed.dart';
 import 'package:ui_instagram/postagem/postagem.dart';
-import 'package:ui_instagram/story/live_story.dart';
 import 'package:ui_instagram/story/my_story.dart';
 import 'package:ui_instagram/story/story.dart';
 
@@ -25,34 +25,40 @@ class _FeedState extends State<Feed> {
       foto:
           'https://quartoframe.com.br/wp-content/uploads/2021/04/minato-namikaze.jpg',
     ),
-    const Story(
+    const StoryWithLabel(
       storyLabel: 'NetflixBrasil',
       foto:
           'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI',
+      isLive: false,
     ),
-    const LiveStory(
+    const StoryWithLabel(
       storyLabel: 'tv_globinho',
       foto:
           'https://pbs.twimg.com/profile_images/1683648123/tv_globinho_400x400.jpg',
+      isLive: true,
     ),
-    const Story(
+    const StoryWithLabel(
       storyLabel: 'crunchyroll',
       foto: 'https://images-na.ssl-images-amazon.com/images/I/417bVUqe0pL.png',
+      isLive: false,
     ),
-    const Story(
+    const StoryWithLabel(
       storyLabel: '@simpsons.oficial',
       foto:
           'https://i.pinimg.com/originals/bd/19/2f/bd192f2723f7d81013f04903d9e0428b.png',
+      isLive: false,
     ),
-    const Story(
+    const StoryWithLabel(
       storyLabel: 'cujo_jotaro',
       foto:
           'https://ovicio.com.br/wp-content/uploads/2020/05/20200530-20200126-jotaro-1200x675-1-555x555.jpg',
+      isLive: false,
     ),
-    const Story(
+    const StoryWithLabel(
       storyLabel: 'noob_saibot',
       foto:
           'http://pm1.narvii.com/6676/958e03999be2a9c01e9f9e71096b851b291caaa3_00.jpg',
+      isLive: false,
     ),
   ];
 
@@ -85,36 +91,41 @@ class _FeedState extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      //controller: scrollController,
-      child: Column(
-        children: <Widget>[
-          const SizedBox(height: 5.0),
-          Container(
-            padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-            color: Colors.black,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .13,
-            child: ListView.separated(
-              separatorBuilder: (context, index) => const SizedBox(width: 10.0),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: feedAppbar,
+      body: SingleChildScrollView(
+        //controller: scrollController,
+        child: Column(
+          children: <Widget>[
+            const SizedBox(height: 5.0),
+            Container(
+              padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+              color: Colors.black,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * .13,
+              child: ListView.separated(
+                separatorBuilder: (context, index) =>
+                    const SizedBox(width: 10.0),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: listStory.length,
+                itemBuilder: (context, index) {
+                  return listStory[index];
+                },
+              ),
+            ),
+            ListView.separated(
+              controller: scrollController,
+              separatorBuilder: (context, index) => const Divider(),
+              itemCount: listPosts.length,
               shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: listStory.length,
               itemBuilder: (context, index) {
-                return listStory[index];
+                return listPosts[index];
               },
             ),
-          ),
-          ListView.separated(
-            controller: scrollController,
-            separatorBuilder: (context, index) => const Divider(),
-            itemCount: listPosts.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return listPosts[index];
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

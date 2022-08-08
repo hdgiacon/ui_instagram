@@ -27,22 +27,21 @@ AppBar feedAppbar = AppBar(
   actions: <Widget>[
     InkWell(
       onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.only(top: 15.0, bottom: 11.0),
-        child: Container(
-          width: 30.0,
-          //height: 10.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            border: Border.all(
-              color: Colors.white,
-              width: 3.0,
-            ),
-          ),
-          child: const Icon(
-            Icons.add,
+      child: Container(
+        width: 30.0,
+        //height: 10.0,
+        margin: const EdgeInsets.only(top: 14.0, bottom: 10.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(
             color: Colors.white,
+            width: 3.0,
           ),
+        ),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 20.0,
         ),
       ),
     ),
