@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_instagram/feed/app_bar_feed.dart';
 import 'package:ui_instagram/postagem/postagem.dart';
+import 'package:ui_instagram/story/live_story.dart';
 import 'package:ui_instagram/story/my_story.dart';
 import 'package:ui_instagram/story/story.dart';
 
@@ -29,36 +30,29 @@ class _FeedState extends State<Feed> {
       storyLabel: 'NetflixBrasil',
       foto:
           'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI',
-      isLive: false,
     ),
-    const StoryWithLabel(
-      storyLabel: 'tv_globinho',
-      foto:
-          'https://pbs.twimg.com/profile_images/1683648123/tv_globinho_400x400.jpg',
-      isLive: true,
-    ),
+    const LiveStoryWithLabel(
+        foto:
+            'https://pbs.twimg.com/profile_images/1683648123/tv_globinho_400x400.jpg',
+        storyLabel: 'tv_globinho'),
     const StoryWithLabel(
       storyLabel: 'crunchyroll',
       foto: 'https://images-na.ssl-images-amazon.com/images/I/417bVUqe0pL.png',
-      isLive: false,
     ),
     const StoryWithLabel(
       storyLabel: '@simpsons.oficial',
       foto:
           'https://i.pinimg.com/originals/bd/19/2f/bd192f2723f7d81013f04903d9e0428b.png',
-      isLive: false,
     ),
     const StoryWithLabel(
       storyLabel: 'cujo_jotaro',
       foto:
           'https://ovicio.com.br/wp-content/uploads/2020/05/20200530-20200126-jotaro-1200x675-1-555x555.jpg',
-      isLive: false,
     ),
     const StoryWithLabel(
       storyLabel: 'noob_saibot',
       foto:
           'http://pm1.narvii.com/6676/958e03999be2a9c01e9f9e71096b851b291caaa3_00.jpg',
-      isLive: false,
     ),
   ];
 
@@ -91,11 +85,22 @@ class _FeedState extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
+    const storyBorderColor = <Color>[
+      Color(0xFF002296),
+      Color(0xFF82008F),
+      Color(0xFFC0007A),
+      Color(0xFFEA0C5F),
+      Color(0xFFFF5341),
+      Color(0xFFFF8820),
+      Color(0xFFF6BA00),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: feedAppbar,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 5.0),
             Container(
@@ -122,6 +127,77 @@ class _FeedState extends State<Feed> {
               itemBuilder: (context, index) {
                 return listPosts[index];
               },
+            ),
+            const SizedBox(height: 60.0),
+            Container(
+              width: 150.0,
+              height: 150.0,
+              padding: const EdgeInsets.all(3.0),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment(0.8, 1),
+                  colors: storyBorderColor,
+                  tileMode: TileMode.mirror,
+                ),
+              ),
+              child: Container(
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                ),
+                child: ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (Rect bounds) => const RadialGradient(
+                    center: Alignment.centerRight,
+                    stops: [.5, 1],
+                    colors: [
+                      Color(0xffffb56b),
+                      Colors.pink,
+                    ],
+                  ).createShader(bounds),
+                  child: const Icon(
+                    Icons.check,
+                    size: 80.0,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            const Text(
+              "You're All Caught Up",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 25.0,
+              ),
+            ),
+            const SizedBox(height: 5.0),
+            TextButton(
+              onPressed: () {},
+              child: const Text("View Older Posts"),
+            ),
+            const SizedBox(height: 50.0),
+            const Text(
+              "Suggested Posts",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 30.0),
+            const Postagem(
+              fotoPerfil:
+                  'https://www.diariodaamazonia.com.br/gerenciador/data/uploads/2019/02/C_EB3KqWAAIRnFY.jpg',
+              nome: 'AraciTopTherm',
+              imagemPostagem:
+                  'https://paginalixo.com/wp-content/uploads/2019/12/photo4915790297808611385.jpg',
+              curtidoPor: 'datena.oficial',
+              descricao:
+                  '''Grande Dica de emagrecimento !!!!!!!!! Perdi 20 kg :).''',
+              numComentarios: 1860,
+              tempoDesdePostagem: 5,
             ),
           ],
         ),

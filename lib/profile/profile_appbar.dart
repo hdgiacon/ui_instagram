@@ -41,7 +41,7 @@ AppBar profileAppbar = AppBar(
             borderRadius: BorderRadius.circular(10.0),
             border: Border.all(
               color: Colors.white,
-              width: 3.0,
+              width: 2.0,
             ),
           ),
           child: const Icon(

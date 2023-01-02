@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 import 'package:ui_instagram/story/content_story.dart';
 
-class Story extends StatelessWidget {
+class LiveStory extends StatelessWidget {
   final String foto;
   final double size;
   final double borderSize;
 
-  const Story({
+  const LiveStory({
     super.key,
     required this.foto,
     required this.size,
@@ -45,18 +46,39 @@ class Story extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Container(
-                  padding: const EdgeInsets.all(3.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: const BoxDecoration(
                     color: Colors.black,
                     shape: BoxShape.circle,
                   ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(foto),
+                  child: RippleAnimation(
+                    color: Colors.grey,
+                    repeat: true,
+                    ripplesCount: 3,
+                    minRadius: 22.0,
+                    duration: const Duration(milliseconds: 1500),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(foto),
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
                     ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(4.0),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEA0C5F),
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                child: const Text(
+                  'AO VIVO',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10.0,
                   ),
                 ),
               ),
@@ -83,11 +105,11 @@ class Story extends StatelessWidget {
   }
 }
 
-class StoryWithLabel extends StatelessWidget {
+class LiveStoryWithLabel extends StatelessWidget {
   final String foto;
   final String storyLabel;
 
-  const StoryWithLabel({
+  const LiveStoryWithLabel({
     super.key,
     required this.foto,
     required this.storyLabel,
@@ -98,7 +120,7 @@ class StoryWithLabel extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Story(
+        LiveStory(
           foto: foto,
           size: 70.0,
           borderSize: 3.0,

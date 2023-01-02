@@ -35,7 +35,6 @@ class Postagem extends StatelessWidget {
               Story(
                 foto: fotoPerfil,
                 size: 30.0,
-                isLive: false,
                 borderSize: 2.0,
               ),
               const SizedBox(width: 10.0),
