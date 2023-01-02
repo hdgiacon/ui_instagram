@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_instagram/story/content_story.dart';
 
 class Story extends StatelessWidget {
   final String foto;
@@ -91,7 +92,20 @@ class Story extends StatelessWidget {
               )
             ],
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ContentStory(
+                  postagemList: [
+                    StoryPostagem(color: Colors.blue),
+                    StoryPostagem(color: Colors.red),
+                    StoryPostagem(color: Colors.deepPurple),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
         const SizedBox(height: 5.0),
       ],

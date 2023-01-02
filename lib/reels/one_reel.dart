@@ -65,7 +65,7 @@ class OneReel extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.transparent,
+                            backgroundColor: Colors.transparent,
                             side: const BorderSide(
                               width: 2.0,
                               color: Colors.white,

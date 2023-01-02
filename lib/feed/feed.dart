@@ -20,7 +20,7 @@ class _FeedState extends State<Feed> {
     super.dispose();
   }
 
-  var listStory = [
+  final listStory = [
     const MyStory(
       foto:
           'https://quartoframe.com.br/wp-content/uploads/2021/04/minato-namikaze.jpg',
@@ -62,7 +62,7 @@ class _FeedState extends State<Feed> {
     ),
   ];
 
-  var listPosts = <Postagem>[
+  final listPosts = <Postagem>[
     const Postagem(
       fotoPerfil:
           'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI',

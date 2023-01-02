@@ -6,7 +6,7 @@ import 'package:ui_instagram/home_page/home_page.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: kReleaseMode,
       backgroundColor: const Color(0xFF2e2e2e),
       builder: (context) => const MaterialApp(
         useInheritedMediaQuery: true,

@@ -93,7 +93,7 @@ class Profile extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.grey[350]!.withAlpha(60),
+                    backgroundColor: Colors.grey[350]!.withAlpha(60),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -112,7 +112,7 @@ class Profile extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.grey[350]!.withAlpha(60),
+                    backgroundColor: Colors.grey[350]!.withAlpha(60),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
