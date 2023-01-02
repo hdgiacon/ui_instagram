@@ -95,7 +95,6 @@ class _FeedState extends State<Feed> {
       backgroundColor: Colors.black,
       appBar: feedAppbar,
       body: SingleChildScrollView(
-        //controller: scrollController,
         child: Column(
           children: <Widget>[
             const SizedBox(height: 5.0),

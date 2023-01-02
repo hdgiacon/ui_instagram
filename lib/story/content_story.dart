@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_instagram/insta_icons/insta_icons.dart';
+import 'package:ui_instagram/story/story_progess_bar.dart';
 
 class StoryPostagem extends StatelessWidget {
   final Color color;
@@ -32,6 +33,18 @@ class _ContentStoryState extends State<ContentStory> {
 
   @override
   Widget build(BuildContext context) {
+    /*
+    final storyProgressList = List.generate(
+      widget.postagemList.length,
+      (index) => LinearProgressIndicator(
+        backgroundColor: Colors.grey.withOpacity(0.5),
+        valueColor: const AlwaysStoppedAnimation<Color>(
+          Colors.grey,
+        ),
+        value: 0.0,
+      ),
+    );
+    */
     return Column(
       children: [
         Expanded(
@@ -51,12 +64,7 @@ class _ContentStoryState extends State<ContentStory> {
                           width: MediaQuery.of(context).size.width /
                                   widget.postagemList.length -
                               9,
-                          child: LinearProgressIndicator(
-                            backgroundColor: Colors.grey.withOpacity(0.5),
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                                Colors.grey),
-                            value: 0.5,
-                          ),
+                          child: const StoryProgressBar(),
                         );
                       }),
                       scrollDirection: Axis.horizontal,
@@ -65,51 +73,120 @@ class _ContentStoryState extends State<ContentStory> {
                       itemCount: widget.postagemList.length,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          index--;
-
-                          if (index < 0) {
-                            index = 0;
-                          }
-                        });
-                      },
+                  const SizedBox(height: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Row(
+                        children: [
+                          const CircleAvatar(
+                            backgroundColor: Colors.black,
+                            radius: 18.0,
+                          ),
+                          const SizedBox(width: 10.0),
+                          const Text(
+                            "nome",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          const SizedBox(width: 10.0),
+                          const Text(
+                            "1 h",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          const Spacer(),
+                          PopupMenuButton(
+                            icon: const Icon(
+                              Icons.more_vert,
+                              color: Colors.white,
+                            ),
+                            itemBuilder: (context) {
+                              return List.generate(5, (index) {
+                                return PopupMenuItem(
+                                  child: Text('Botão $index'),
+                                );
+                              });
+                            },
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
-                    flex: 6,
-                    child: GestureDetector(
-                      onTap: () {
-                        // mutar
-                      },
-                      onLongPress: () {
-                        // pausar
-                      },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                index--;
+
+                                if (index < 0) {
+                                  index = 0;
+                                }
+                              });
+                            },
+                            onVerticalDragUpdate: (details) {
+                              int sensitivity = 8;
+
+                              if (details.delta.dy > sensitivity) {
+                                Navigator.pop(context);
+                              }
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          flex: 6,
+                          child: GestureDetector(
+                            onTap: () {
+                              // mutar
+                            },
+                            onLongPress: () {
+                              // pausar
+                            },
+                            onVerticalDragUpdate: (details) {
+                              int sensitivity = 8;
+
+                              if (details.delta.dy > sensitivity) {
+                                Navigator.pop(context);
+                              }
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                index++;
+
+                                if (index == widget.postagemList.length) {
+                                  index = widget.postagemList.length - 1;
+
+                                  Navigator.pop(context);
+                                }
+                              });
+                            },
+                            onVerticalDragUpdate: (details) {
+                              int sensitivity = 8;
+
+                              if (details.delta.dy > sensitivity) {
+                                Navigator.pop(context);
+                              }
+                            },
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          index++;
-
-                          if (index == widget.postagemList.length) {
-                            index = widget.postagemList.length - 1;
-
-                            Navigator.pop(context);
-                          }
-                        });
-                      },
-                    ),
-                  )
                 ],
               ),
             ],
