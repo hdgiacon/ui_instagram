@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/feed/app_bar_feed.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:ui_instagram/postagem/postagem.dart';
-import 'package:ui_instagram/story/live_story.dart';
-import 'package:ui_instagram/story/my_story.dart';
 import 'package:ui_instagram/story/story.dart';
 
+part 'app_bar_feed.dart';
+
 class Feed extends StatefulWidget {
-  const Feed({Key? key}) : super(key: key);
+  const Feed({super.key});
 
   @override
   State<Feed> createState() => _FeedState();
@@ -85,7 +86,7 @@ class _FeedState extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
-    const storyBorderColor = <Color>[
+    const storyBorderColor = [
       Color(0xFF002296),
       Color(0xFF82008F),
       Color(0xFFC0007A),

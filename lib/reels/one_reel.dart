@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:marquee/marquee.dart';
-import 'package:ui_instagram/insta_icons/insta_icons.dart';
+part of 'reels.dart';
 
 class OneReel extends StatelessWidget {
   final String profileName;

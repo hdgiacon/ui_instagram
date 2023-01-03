@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:simple_ripple_animation/simple_ripple_animation.dart';
-import 'package:ui_instagram/story/content_story.dart';
+part of 'story.dart';
 
 class LiveStory extends StatelessWidget {
   final String foto;
@@ -16,7 +14,7 @@ class LiveStory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const storyBorderColor = <Color>[
+    const storyBorderColor = [
       Color(0xFF002296),
       Color(0xFF82008F),
       Color(0xFFC0007A),

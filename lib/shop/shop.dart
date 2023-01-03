@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/shop/shop_appbar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+part 'shop_appbar.dart';
 
 class Shop extends StatelessWidget {
-  const Shop({Key? key}) : super(key: key);
+  const Shop({super.key});
 
   @override
   Widget build(BuildContext context) {

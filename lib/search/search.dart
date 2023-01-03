@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/search/search_appbar.dart';
-//import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+part 'search_appbar.dart';
 
 class Search extends StatelessWidget {
-  const Search({Key? key}) : super(key: key);
+  const Search({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 import 'package:ui_instagram/story/content_story.dart';
+
+part 'my_story.dart';
+part 'live_story.dart';
 
 class Story extends StatelessWidget {
   final String foto;
@@ -15,7 +19,7 @@ class Story extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const storyBorderColor = <Color>[
+    const storyBorderColor = [
       Color(0xFF002296),
       Color(0xFF82008F),
       Color(0xFFC0007A),
@@ -105,7 +109,10 @@ class StoryWithLabel extends StatelessWidget {
         ),
         Text(
           storyLabel,
-          style: const TextStyle(fontSize: 10.0, color: Colors.white),
+          style: const TextStyle(
+            fontSize: 10.0,
+            color: Colors.white,
+          ),
         )
       ],
     );

@@ -22,7 +22,10 @@ class StoryPostagem extends StatelessWidget {
 class ContentStory extends StatefulWidget {
   final List<StoryPostagem> postagemList;
 
-  const ContentStory({Key? key, required this.postagemList}) : super(key: key);
+  const ContentStory({
+    super.key,
+    required this.postagemList,
+  });
 
   @override
   State<ContentStory> createState() => _ContentStoryState();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/profile/profile_appbar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+part 'profile_appbar.dart';
 
 class Profile extends StatelessWidget {
   final String profileImage;

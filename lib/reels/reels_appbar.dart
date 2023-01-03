@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'reels.dart';
 
 AppBar reelsAppBar = AppBar(
   backgroundColor: Colors.black,

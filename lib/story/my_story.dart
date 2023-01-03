@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'story.dart';
 
 class MyStory extends StatelessWidget {
   final String foto;

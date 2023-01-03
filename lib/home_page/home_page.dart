@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/feed/app_bar_feed.dart';
 import 'package:ui_instagram/feed/feed.dart';
 import 'package:ui_instagram/profile/profile.dart';
-import 'package:ui_instagram/profile/profile_appbar.dart';
 import 'package:ui_instagram/reels/reels.dart';
-import 'package:ui_instagram/reels/reels_appbar.dart';
 import 'package:ui_instagram/search/search.dart';
-import 'package:ui_instagram/search/search_appbar.dart';
 import 'package:ui_instagram/shop/shop.dart';
-import 'package:ui_instagram/shop/shop_appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,7 +42,6 @@ class _HomePageState extends State<HomePage>
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.black,
-        //appBar: currentAppBar(_actualTab),
         body: TabBarView(
           controller: _tabController,
           children: const [

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ui_instagram/reels/one_reel.dart';
-import 'package:ui_instagram/reels/reels_appbar.dart';
+import 'dart:math' as math;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:marquee/marquee.dart';
+import 'package:ui_instagram/insta_icons/insta_icons.dart';
+
+part 'one_reel.dart';
+part 'reels_appbar.dart';
 
 class Reels extends StatefulWidget {
   const Reels({super.key});
