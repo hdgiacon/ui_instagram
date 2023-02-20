@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:ui_instagram/postagem/postagem.dart';
 import 'package:ui_instagram/story/story.dart';
@@ -86,6 +87,23 @@ class _FeedState extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
+    RefreshController refreshController =
+        RefreshController(initialRefresh: false);
+
+    void onRefresh() async {
+      // monitor network fetch
+      await Future.delayed(const Duration(milliseconds: 1000));
+      // if failed,use refreshFailed()
+      refreshController.refreshCompleted();
+    }
+
+    void onLoading() async {
+      // monitor network fetch
+      await Future.delayed(const Duration(milliseconds: 1000));
+      // if failed,use loadFailed(),if no data return,use LoadNodata()
+      refreshController.loadComplete();
+    }
+
     const storyBorderColor = [
       Color(0xFF002296),
       Color(0xFF82008F),
@@ -99,108 +117,128 @@ class _FeedState extends State<Feed> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: feedAppbar,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const SizedBox(height: 5.0),
-            Container(
-              padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-              color: Colors.black,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * .13,
-              child: ListView.separated(
-                separatorBuilder: (context, index) =>
-                    const SizedBox(width: 10.0),
+      body: SmartRefresher(
+        controller: refreshController,
+        enablePullDown: true,
+        header: const ClassicHeader(
+          refreshStyle: RefreshStyle.Follow,
+          refreshingIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          completeIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          failedIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          releaseIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          idleIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          canTwoLevelIcon: Icon(Icons.clear, color: Colors.green, size: 0.0),
+          releaseText: "",
+          completeText: "",
+          refreshingText: "",
+          failedText: "",
+          idleText: "",
+        ),
+        onRefresh: onRefresh,
+        onLoading: onLoading,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(height: 5.0),
+              Container(
+                padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+                color: Colors.black,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * .13,
+                child: ListView.separated(
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10.0),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: listStory.length,
+                  itemBuilder: (context, index) {
+                    return listStory[index];
+                  },
+                ),
+              ),
+              ListView.separated(
+                controller: scrollController,
+                separatorBuilder: (context, index) => const Divider(),
+                itemCount: listPosts.length,
                 shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: listStory.length,
                 itemBuilder: (context, index) {
-                  return listStory[index];
+                  return listPosts[index];
                 },
               ),
-            ),
-            ListView.separated(
-              controller: scrollController,
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: listPosts.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return listPosts[index];
-              },
-            ),
-            const SizedBox(height: 60.0),
-            Container(
-              width: 150.0,
-              height: 150.0,
-              padding: const EdgeInsets.all(3.0),
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment(0.8, 1),
-                  colors: storyBorderColor,
-                  tileMode: TileMode.mirror,
-                ),
-              ),
-              child: Container(
-                alignment: Alignment.center,
+              const SizedBox(height: 60.0),
+              Container(
+                width: 150.0,
+                height: 150.0,
+                padding: const EdgeInsets.all(3.0),
                 decoration: const BoxDecoration(
-                  color: Colors.black,
                   shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment(0.8, 1),
+                    colors: storyBorderColor,
+                    tileMode: TileMode.mirror,
+                  ),
                 ),
-                child: ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (Rect bounds) => const RadialGradient(
-                    center: Alignment.centerRight,
-                    stops: [.5, 1],
-                    colors: [
-                      Color(0xffffb56b),
-                      Colors.pink,
-                    ],
-                  ).createShader(bounds),
-                  child: const Icon(
-                    Icons.check,
-                    size: 80.0,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                  ),
+                  child: ShaderMask(
+                    blendMode: BlendMode.srcIn,
+                    shaderCallback: (Rect bounds) => const RadialGradient(
+                      center: Alignment.centerRight,
+                      stops: [.5, 1],
+                      colors: [
+                        Color(0xffffb56b),
+                        Colors.pink,
+                      ],
+                    ).createShader(bounds),
+                    child: const Icon(
+                      Icons.check,
+                      size: 80.0,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 30.0),
-            const Text(
-              "You're All Caught Up",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25.0,
+              const SizedBox(height: 30.0),
+              const Text(
+                "You're All Caught Up",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                ),
               ),
-            ),
-            const SizedBox(height: 5.0),
-            TextButton(
-              onPressed: () {},
-              child: const Text("View Older Posts"),
-            ),
-            const SizedBox(height: 50.0),
-            const Text(
-              "Suggested Posts",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 5.0),
+              TextButton(
+                onPressed: () {},
+                child: const Text("View Older Posts"),
               ),
-            ),
-            const SizedBox(height: 30.0),
-            const Postagem(
-              fotoPerfil:
-                  'https://www.diariodaamazonia.com.br/gerenciador/data/uploads/2019/02/C_EB3KqWAAIRnFY.jpg',
-              nome: 'AraciTopTherm',
-              imagemPostagem:
-                  'https://paginalixo.com/wp-content/uploads/2019/12/photo4915790297808611385.jpg',
-              curtidoPor: 'datena.oficial',
-              descricao:
-                  '''Grande Dica de emagrecimento !!!!!!!!! Perdi 20 kg :).''',
-              numComentarios: 1860,
-              tempoDesdePostagem: 5,
-            ),
-          ],
+              const SizedBox(height: 50.0),
+              const Text(
+                "Suggested Posts",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 30.0),
+              const Postagem(
+                fotoPerfil:
+                    'https://www.diariodaamazonia.com.br/gerenciador/data/uploads/2019/02/C_EB3KqWAAIRnFY.jpg',
+                nome: 'AraciTopTherm',
+                imagemPostagem:
+                    'https://paginalixo.com/wp-content/uploads/2019/12/photo4915790297808611385.jpg',
+                curtidoPor: 'datena.oficial',
+                descricao:
+                    '''Grande Dica de emagrecimento !!!!!!!!! Perdi 20 kg :).''',
+                numComentarios: 1860,
+                tempoDesdePostagem: 5,
+              ),
+            ],
+          ),
         ),
       ),
     );

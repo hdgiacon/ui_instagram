@@ -98,21 +98,4 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
-
-  AppBar? currentAppBar(int index) {
-    switch (index) {
-      case 0:
-        return feedAppbar;
-      case 1:
-        return searchAppbar;
-      case 2:
-        return reelsAppBar;
-      case 3:
-        return shopAppbar;
-      case 4:
-        return profileAppbar;
-      default:
-        return feedAppbar;
-    }
-  }
 }
